@@ -1,8 +1,13 @@
 <?php
 
-add_action( 'acf/include_fields', function() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-		return;
+		// frontend-link of this exact file /themes/THEMENAME/theme/modules/global-settings/setup.php
+		$link = get_site_url() . '/wp-content/themes/' . get_template() . '/theme/modules/global-settings/setup.php';
+		?>⚠️ ACF ist nicht aktiviert.
+—> Bitte installiere und aktiviere Advanced Custom Fields Pro und öffne dann diesen Link:
+<a href="<?= $link ?>" target="_blank">Manuelle Installation</a>
+		<?php
+		exit;
 	}
 
 	acf_add_local_field_group( array(
@@ -131,10 +136,8 @@ add_action( 'acf/include_fields', function() {
 	'show_in_rest' => 0,
 	'display_title' => '',
 ) );
-} );
 
-add_action( 'acf/init', function() {
-	acf_add_options_page( array(
+acf_add_options_page( array(
 	'page_title' => 'Globale Optionen',
 	'menu_slug' => 'globale-optionen',
 	'menu_title' => 'Globales',
@@ -146,5 +149,4 @@ add_action( 'acf/init', function() {
 	),
 	'icon_url' => 'dashicons-visibility',
 ) );
-} );
 
