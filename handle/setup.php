@@ -1,7 +1,7 @@
 <?php
 	$header_path = __DIR__ . '/../../../header.php';
 	$header = file_get_contents($header_path);
-	$handle = '<handle></handle>';
+	$handle = '	<handle></handle>';
 	// add the handle after <body …> tag
 	$body_pos = strpos($header, '<body');
 	if($body_pos !== false){
