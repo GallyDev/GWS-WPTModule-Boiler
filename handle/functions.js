@@ -1,0 +1,1 @@
+document.querySelector('handle').addEventListener('click', () => document.body.classList.toggle('open'));

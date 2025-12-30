@@ -1,0 +1,78 @@
+handle{
+	display: none;
+
+	position: fixed;
+	right: 0;
+	top: 0;
+
+	--color-accent: var(--wp--preset--color--accent);
+	--color-background: transparent;
+	--height: 30px;
+	--size: 4px;
+}
+
+@media screen and (max-width: 9999px){
+	.open{
+		overflow: hidden;
+	}
+
+	handle{
+		padding: 5px;
+		height: var(--height);
+		display: grid;
+		grid-template-areas: "icon logo";
+		place-items: center;
+		background-color: var(--color-background);
+
+		z-index: 90;
+	}
+	handle::before{
+		content: '';
+		display: block;
+		height: calc(var(--height) - var(--size)*2);
+		width: var(--height);
+
+		border: var(--size) solid var(--color-accent);
+		border-left: none;
+		border-right: none;
+		rotate: 0;
+
+		box-sizing: border-box;
+		grid-area: icon;
+
+		transition: border-width .25s ease,
+					height .25s ease,
+					rotate .25s ease;
+	}
+	handle::after{
+		content: '';
+		display: block;
+		height: var(--size);
+		width: var(--height);
+
+		background-color: var(--color-accent);
+
+		rotate: 0;
+
+		box-sizing: border-box;
+		grid-area: icon;
+
+		transition: rotate .25s ease;
+	}
+	handle img{
+		height: var(--height);
+		filter: invert(1);
+		display: block;
+		grid-area: logo;
+	}
+
+	.open handle::before{
+		border-width: calc(var(--size) / 2);
+		height: 0;
+		rotate: 45deg;
+	}
+	.open handle::after{
+		rotate: -45deg;
+	}
+
+}
