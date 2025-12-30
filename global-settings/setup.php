@@ -7,7 +7,7 @@
 —> Bitte installiere und aktiviere Advanced Custom Fields Pro und öffne dann diesen Link:
 <a href="<?= $link ?>" target="_blank">Manuelle Installation</a>
 		<?php
-		exit;
+		return;
 	}
 
 	acf_add_local_field_group( array(
