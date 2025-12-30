@@ -1,12 +1,9 @@
 <?php
 
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-		// frontend-link of this exact file /themes/THEMENAME/theme/modules/global-settings/setup.php
-		$link = get_site_url() . '/wp-content/themes/' . get_template() . '/theme/modules/global-settings/setup.php';
-		?>⚠️ ACF ist nicht aktiviert.
-—> Bitte installiere und aktiviere Advanced Custom Fields Pro und öffne dann diesen Link:
-<a href="<?= $link ?>" target="_blank">Manuelle Installation</a>
+		?>⚠️ ACF ist nicht aktiviert. Das Modul wird wieder gelöscht. Bitte aktiviere ACF Pro bevor du das Modul installierst.
 		<?php
+		rmdir( dirname( __FILE__ ) );
 		return;
 	}
 
