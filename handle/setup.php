@@ -1,5 +1,6 @@
 <?php
-	$header = file_get_contents(__DIR__ . '/../../header.php');
+	$header_path = __DIR__ . '/../../../header.php';
+	$header = file_get_contents($header_path);
 	$handle = '<handle></handle>';
 	// add the handle after <body …> tag
 	$body_pos = strpos($header, '<body');
@@ -12,6 +13,6 @@
 			$header .= "\n" . $handle;
 		}
 	}
-	file_put_contents(__DIR__ . '/../../header.php', $header);
+	file_put_contents($header_path, $header);
 
 	echo "handle-tag wurde der header.php hinzugefügt\n";
