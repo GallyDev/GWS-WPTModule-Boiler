@@ -1,0 +1,2 @@
+# Burger-Menü Handle
+Dieses Modul fügt den `<handle>`-Tag in die header.php ein. Es enthält dazu eine JavaScript-Datei, welche das Umschalten des Burger-Menüs erledigt und eine CSS-Datei, welche dem `<handle>`-Tag Basis-Styles gibt.
