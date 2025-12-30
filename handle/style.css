@@ -3,7 +3,7 @@ handle{
 
 	position: fixed;
 	right: 0;
-	top: 0;
+	top: var(--wp--custom--admin--toolbar--height,0px);
 
 	--color-accent: var(--wp--preset--color--accent);
 	--color-background: transparent;
