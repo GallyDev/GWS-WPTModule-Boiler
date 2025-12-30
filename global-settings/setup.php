@@ -1,9 +1,9 @@
 <?php
-
+	global $remove;
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-		?>⚠️ ACF ist nicht aktiviert. Das Modul wird wieder gelöscht. Bitte aktiviere ACF Pro bevor du das Modul installierst.
+		?>⚠️ ACF ist nicht aktiviert. Bitte aktiviere ACF Pro bevor du das Modul installierst.
 		<?php
-		rmdir( dirname( __FILE__ ) );
+		$remove = true;
 		return;
 	}
 
