@@ -48,19 +48,66 @@
 				}
 			}
 
-			$ret .= '<a href="' . $url . '" target="' . esc_attr( $target ) . '" class="gws-social-icon" aria-label="' . $title . '">';
+			$ret .= '<a href="' . $url . '" target="' . esc_attr( $target ) . '" class="gws-social-icon" aria-label="' . $title . '"></a>';
 		}
 		$ret .= '</ul>';
 
-		if ( $echo === true) {
+		if ( $echo === true ) {
 			echo $ret;
 		} else {
 			return $ret;
 		}
 	}
+	function gws_social_icons_shortcode() {
+		return gws_social_icons( false );
+	}
+	function gws_social_icons_block( $block, $content = '', $is_preview = false, $post_id = 0 ) {
+		if( $is_preview ) {
+			?>
+			<div class="gws-block-preview">
+				<p><strong>GWS Social Icons</strong></p>
+				<p>Es werden folgende Icons dargestellt:</p>
+				<ul>
+					<?php $social_links = get_field('social_media_links', 'option');
+					if( $social_links ) {
+						foreach( $social_links as $social_link ) {
+							$link = $social_link['link'];
+							if( !$link ) {
+								continue;
+							}
+							$url = esc_url( $link['url'] );
+							$parsed_url = parse_url( $url );
+							$host = $parsed_url['host'] ?? '';
+							$host = preg_replace( '/^www\./', '', $host );
+							$host_parts = explode( '.', $host );
+							$social_network = $host_parts[0] ?? 'link';
+							echo '<li>' . esc_html( ucfirst( $social_network ) ) . ': ' . esc_html( $url ) . '</li>';
+						}
+					} else {
+						echo '<li>Keine Social Media Links definiert.</li>';
+					} ?>
+				</ul>
+			</div>
+			<style>
+				.gws-block-preview {
+					font-size: 0.8em;
+					font-family: system-ui, sans-serif;
+					padding: 1em;
+					background: #f5f5f5;
+					border: 2px dashed #ccc;
+					p,ul{
+						margin: 0;
+					}
+				}
+			</style>
+			<?php
+			return;
+		}
+		gws_social_icons();
+	}
 
 	// shortcode [gws_social_icons]
-	add_shortcode( 'gws_social_icons', 'gws_social_icons' );
+	add_shortcode( 'gws_social_icons', 'gws_social_icons_shortcode' );
 
 	// gutenberg block gws/social-icons
 	function gws_register_social_icons_block() {
@@ -80,7 +127,7 @@
 
 			// automatisch generierte Werte
 			'name'              => 'gws_social_icons',
-			'render_callback'   => 'gws_social_icons',
+			'render_callback'   => 'gws_social_icons_block',
 		];
 		acf_register_block_type($block);
 	}
