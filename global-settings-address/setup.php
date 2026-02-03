@@ -7,13 +7,13 @@
 		return;
 	}
 
-	$uniqid = uniqid();
+
 	$group = array(
-		'key' => 'gws_global_group_kontakt_'.$uniqid,
+		'key' => 'gws_global_group_kontakt',
 		'title' => 'Kontaktdaten',
 		'fields' => array(
 			array(
-				'key' => 'gws_global_field_anschrift_'.$uniqid,
+				'key' => 'gws_global_field_anschrift',
 				'label' => 'Anschrift',
 				'name' => 'anschrift',
 				'aria-label' => '',
@@ -34,7 +34,7 @@
 				'new_lines' => 'br',
 			),
 			array(
-				'key' => 'gws_global_field_burozeiten_'.$uniqid,
+				'key' => 'gws_global_field_burozeiten',
 				'label' => 'Bürozeiten',
 				'name' => 'burozeiten',
 				'aria-label' => '',
@@ -55,7 +55,7 @@
 				'new_lines' => '',
 			),
 			array(
-				'key' => 'gws_global_field_email_'.$uniqid,
+				'key' => 'gws_global_field_email',
 				'label' => 'E-Mail',
 				'name' => 'e-mail',
 				'aria-label' => '',
@@ -64,7 +64,7 @@
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
-					'width' => '50',
+					'width' => '',
 					'class' => '',
 					'id' => '',
 				),
@@ -75,7 +75,7 @@
 				'append' => '',
 			),
 			array(
-				'key' => 'gws_global_field_telefon_'.$uniqid,
+				'key' => 'gws_global_field_telefon',
 				'label' => 'Telefon',
 				'name' => 'telefon',
 				'aria-label' => '',
