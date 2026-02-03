@@ -82,6 +82,7 @@
 			'name'              => 'gws_social_icons',
 			'render_callback'   => 'gws_social_icons',
 		];
+		acf_register_block_type($block);
 	}
 	add_action( 'init', 'gws_register_social_icons_block' );
 
