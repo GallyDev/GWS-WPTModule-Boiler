@@ -1,4 +1,9 @@
 <?php
+	if(defined('GWS_WPT_GLOBALS')) {
+		unlink(__FILE__);
+		return;
+	};
+	define('GWS_WPT_GLOBALS', true);
 
 	add_action( 'acf/init', function() {
 		acf_add_options_page( array(

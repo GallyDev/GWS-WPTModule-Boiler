@@ -64,7 +64,7 @@
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
-					'width' => '33',
+					'width' => '50',
 					'class' => '',
 					'id' => '',
 				),
@@ -84,7 +84,7 @@
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array(
-					'width' => '33',
+					'width' => '50',
 					'class' => '',
 					'id' => '',
 				),
@@ -94,24 +94,6 @@
 				'placeholder' => '',
 				'prepend' => '',
 				'append' => '',
-			),
-			array(
-				'key' => 'gws_global_field_linkedin',
-				'label' => 'LinkedIn',
-				'name' => 'linkedin',
-				'aria-label' => '',
-				'type' => 'url',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '33',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
 			),
 		),
 		'location' => array(
