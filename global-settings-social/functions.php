@@ -1,6 +1,6 @@
 <?php
 
-	function gws_social_icons() {
+	function gws_social_icons($echo = true) {
 		$social_links = get_field('social_media_links', 'option');
 		if( !$social_links ) {
 			return;
@@ -8,7 +8,9 @@
 
 		$icons_css = file_get_contents( __DIR__ . '/icons.css' );
 
-		echo '<ul class="gws-social-icons">';
+		$ret = '';
+
+		$ret .= '<ul class="gws-social-icons">';
 
 		foreach( $social_links as $social_link ) {
 			$link = $social_link['link'];
@@ -46,10 +48,42 @@
 				}
 			}
 
-			echo '<a href="' . $url . '" target="' . esc_attr( $target ) . '" class="gws-social-icon" aria-label="' . $title . '">';
+			$ret .= '<a href="' . $url . '" target="' . esc_attr( $target ) . '" class="gws-social-icon" aria-label="' . $title . '">';
 		}
-		echo '</ul>';
+		$ret .= '</ul>';
+
+		if ( $echo === true) {
+			echo $ret;
+		} else {
+			return $ret;
+		}
 	}
+
+	// shortcode [gws_social_icons]
+	add_shortcode( 'gws_social_icons', 'gws_social_icons' );
+
+	// gutenberg block gws/social-icons
+	function gws_register_social_icons_block() {
+		if( ! function_exists( 'acf_register_block_type' ) ) {
+			return;
+		}
+		$block = [
+			'title'             => __('GWS Social Icons'),
+			'description'       => __('Dieser Block stellt die Social Icons aus den globalen Einstellungen dar.'),
+			'keywords'          => array('GWS', 'Social'),
+
+			'category'          => 'widgets',
+			'icon'              => 'share',
+			'supports'          => array(),
+			'mode'              => 'preview', // 'preview' oder 'edit'
+
+
+			// automatisch generierte Werte
+			'name'              => 'gws_social_icons',
+			'render_callback'   => 'gws_social_icons',
+		];
+	}
+	add_action( 'init', 'gws_register_social_icons_block' );
 
 	// ADD-GLOBAL-SETTINGS
 
