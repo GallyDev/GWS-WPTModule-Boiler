@@ -8,12 +8,13 @@
 	}
 
 
+	$uniqid = uniqid();
 	$group = array(
-		'key' => 'gws_global_group_social_media',
+		'key' => 'gws_global_group_social_media_'.$uniqid,
 		'title' => 'Social Media Icons',
 		'fields' => array(
 			array(
-				'key' => 'gws_global_field_social_media_links',
+				'key' => 'gws_global_field_social_media_links_'.$uniqid,
 				'label' => 'Social Media Links',
 				'name' => 'social_media_links',
 				'aria-label' => '',
@@ -35,7 +36,7 @@
 				'rows_per_page' => 20,
 				'sub_fields' => array(
 					array(
-						'key' => 'gws_global_field_social_media_link',
+						'key' => 'gws_global_field_social_media_link_'.$uniqid,
 						'label' => 'Social Media Link',
 						'name' => 'link',
 						'aria-label' => '',
@@ -50,7 +51,7 @@
 						),
 						'return_format' => 'array',
 						'allow_in_bindings' => 0,
-						'parent_repeater' => 'gws_global_field_social_media_links',
+						'parent_repeater' => 'gws_global_field_social_media_links_'.$uniqid,
 					),
 				),
 			),
