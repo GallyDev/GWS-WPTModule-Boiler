@@ -48,7 +48,7 @@
 				}
 			}
 
-			$ret .= '<a href="' . $url . '" target="' . esc_attr( $target ) . '" class="gws-social-icon" aria-label="' . $title . '"></a>';
+			$ret .= '<li><a href="' . $url . '" target="' . esc_attr( $target ) . '" class="gws-social-icon" aria-label="' . $title . '"></a></li>';
 		}
 		$ret .= '</ul>';
 
